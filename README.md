@@ -1,5 +1,7 @@
 # README
 
+![alt text](cover1-compressed.jpg)
+
 ## 1 . Requirements
 
 | Component | Version | Notes |
@@ -58,9 +60,9 @@ Follow the interactive prompts to apply LoRA fine‑tuning on top of the pruned 
 ├── Llama/                 
 │   ├── run.sh             # NIRVANA pruning scripts
 │   └── recover_ft.sh      # LoRA post‑training
-├── icl_eval/              # Evaluation
+├── eval/              # Evaluation
 │   └── run_eval.sh
-├── setup.sh               # One‑click environment bootstrap
+└── setup.sh               # One‑click environment bootstrap
         
 ```
 
