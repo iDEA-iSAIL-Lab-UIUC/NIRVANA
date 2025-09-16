@@ -1,0 +1,16 @@
+tag: storycloze
+task: storycloze_2018
+dataset_path: story_cloze
+dataset_name: "2018"
+output_type: multiple_choice
+validation_split: validation
+test_split: test
+doc_to_text: "{{[InputSentence1, InputSentence2, InputSentence3, InputSentence4]|join(' ')}}"
+doc_to_target: "{{AnswerRightEnding}}"
+doc_to_choice: "{{[RandomFifthSentenceQuiz1, RandomFifthSentenceQuiz2]}}"
+should_decontaminate: true
+doc_to_decontamination_query: "{{[InputSentence1, InputSentence2, InputSentence3, InputSentence4]|join(' ')}}"
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
