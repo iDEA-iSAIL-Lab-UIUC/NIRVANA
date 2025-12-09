@@ -89,9 +89,6 @@ def PPLMetric(model, tokenizer, datasets, seq_len=128, batch_size = 4, device="c
   
 @torch.no_grad()
 def compute_influence_loss(original_model, pruned_model, test_data, device="cuda", eps: float = 1e-12):
-    # _, test_data = get_loaders(dataset, tokenizer, seq_len=seq_len, batch_size = batch_size)
-    # original_model.eval()
-    # pruned_model.eval()
     test_data = [test_data]
     
     total_kl = 0.0

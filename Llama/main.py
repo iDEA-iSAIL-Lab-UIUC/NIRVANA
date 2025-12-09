@@ -399,7 +399,28 @@ def main(args):
   after_pruning_parameters = sum(p.numel() for p in model.parameters() if p.requires_grad)
   print("#Param before: {}, #Param after: {}, Ratio = {:.4f}%".format(before_pruning_parameters, after_pruning_parameters,  100.0*after_pruning_parameters/before_pruning_parameters))
   
+  if args.get_kl:          
+      ori_model_config = LlamaConfig.from_pretrained(args.base_model)
+      ori_model = LlamaForCausalLM.from_pretrained(
+          args.base_model,
+          config=ori_model_config,
+          low_cpu_mem_usage=True,
+          device_map='auto',
+          torch_dtype=torch.bfloat16
+      )
 
+      test_data = get_examples(args.data,
+                                tokenizer, 
+                                n_samples=128, 
+                                seq_len=64,
+                                seed=42
+                                ).to('cuda')
+      
+
+      kl_loss = compute_influence_loss(original_model=ori_model, pruned_model=model, test_data=test_data)
+      print('KL divergence:', kl_loss)
+      
+      del ori_model
 
 
   
