@@ -5,7 +5,7 @@ from transformers import AutoTokenizer
 from llama import LlamaForCausalLM, LlamaConfig
 import argparse
 import torch
-from dataset.evaluator import PPLMetric
+from dataset.evaluator import PPLMetric, compute_influence_loss
 import os
 from pathlib import Path
 from dataset.utils import get_examples
