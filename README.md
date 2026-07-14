@@ -2,6 +2,14 @@
 
 ![alt text](cover1-compressed.jpg)
 
+
+
+
+
+🎉 **[News]** Our paper has been accepted to the **Conference on Language Modeling (COLM) 2026**! Come as you are :)))))
+
+
+
 ## 1 . Requirements
 
 | Component | Version | Notes |
